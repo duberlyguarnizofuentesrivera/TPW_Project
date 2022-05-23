@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Proyecto UTP">
+    <serverData>
+      <paths name="Proyecto UTP">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="proyectoTPW_Grupo_4" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
