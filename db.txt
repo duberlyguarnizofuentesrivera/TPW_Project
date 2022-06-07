@@ -179,8 +179,7 @@ Gianna@Castro Morales@Colombia@"Agitado, no mezclado." @1625686257
 Santino@Castro Araya@Colombia@"¡Soylent Green es gente!"@1641159684
 Jayden@Reyes García@Perú@"Diles que salgan con todo lo que tienen y ganen sólo una para the Gipper."@1654121464
 Jayden@Rivera Díaz@Colombia@"¡Díganle hola a mi pequeña amiga!"@1644337018
-"Thiago Benjamín@Rojas Espinoza@Perú@Striker: ""¡De veras, no puede ser serio!"". 
-Rumack: ""Sí soy serio, y no me llame Deborah.""@1641415188"
+"Thiago Benjamín@Rojas Espinoza@Perú@Striker: "¡De veras, no puede ser serio!"@1641415188"
 Valentina@Cortés Riquelme@Colombia@"Amar es no tener que decir nunca 'lo siento'."@1642881986
 Santino@Gutiérrez Castro@Perú@"Sra. Robinson, trata de seducirme... ¿No es así?" @1626616303
 Olivia@Jara Jara@Colombia@"Muy bien, Sr. DeMille, estoy lista para mi primer plano." @1636536206
@@ -399,3 +398,4 @@ Jayden@Castro Fernández@Colombia@"¡Estoy caminando aquí! ¡Estoy caminando aq
 viviana@becerra@Chile@hola guapo@1654558368
 duberly@guarnizo@Colombia@hola mijo@1654559009
 fanny@becerra@Chile@ola suegra@1654559046
+andrea@espinoza@Perú@hola como estas?@1654560979

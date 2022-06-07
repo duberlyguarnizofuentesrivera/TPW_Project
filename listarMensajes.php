@@ -1,7 +1,7 @@
 <?php
 function listarMensajes($nombre, $apellido, $pais)
 {
-
+    $log_file = fopen("log.txt", "a");
     $db_file = fopen("db.txt", "r") or die("no se puede abrir el archivo!");
     $mensajes = array();
     while (!feof($db_file)) {
@@ -20,8 +20,13 @@ function listarMensajes($nombre, $apellido, $pais)
                 }
             }
 
+        }else{
+            fwrite($log_file, "no se pudo leer el registro: {$linea}, el conteo de campos no coincide con 5");
         }
+
+
     }
+    fclose($log_file);
     fclose($db_file);
     return $mensajes;
 }

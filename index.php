@@ -88,19 +88,20 @@
                 </div>
 
             </div>
-            <div class="col text-center position-absolute bottom-0 start-50 translate-middle text-white">
-                <a onclick="writeMessage()" href="#" class="boton-efecto text-white " id="btnNuevoMensaje">Dejar un
-                    mensaje</a>
-                <p class="py-3 small ">Al dar clic en el botón, estás aceptando nuestra <a href=" ">política de
-                        privacidad</a></p>
-            </div>
+
         </div>
         <div class="w-100 d-none d-xs-block d-lg-none "></div>
         <div class="d-flex ">
         </div>
         <div class="col text-center ">
             <div class="sticky-md-bottom sticky-xs-top ">
-                <img class="img-fluid h-75 align-bottom g-0 " src="img/img_index.png ">
+                <img class="img-fluid h-75 align-bottom g-0" src="img/img_index.png ">
+                <div class="col text-center position-absolute bottom-0 start-50 translate-middle text-white">
+                    <a onclick="writeMessage()" href="#" class="boton-efecto text-white " id="btnNuevoMensaje">Dejar un
+                        mensaje</a>
+                    <p class="py-3 small ">Al dar clic en el botón, estás aceptando nuestra <a href=" ">política de
+                            privacidad</a></p>
+                </div>
             </div>
 
         </div>

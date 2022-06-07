@@ -7,6 +7,7 @@ nombre.addEventListener("keyup", validarForm);
 apellido.addEventListener("keyup", validarForm);
 pais.addEventListener("change", validarForm);
 mensaje.addEventListener("keyup", validarForm);
+
 function validarForm() {
     let nombre;
     let apellido;
@@ -18,6 +19,7 @@ function validarForm() {
         apellido = document.getElementById("txtApellido").value;
         pais = document.getElementById("cmbPais").value;
         mensaje = document.getElementById("txtMensaje").value;
+
         if (contieneCaracteresEspeciales(nombre)) {
             document.getElementById("txtNombre").style.borderColor = "red";
             document.getElementById("nombreErrorSpan").innerHTML = "Caracteres no validos!";
