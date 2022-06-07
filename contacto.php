@@ -1,33 +1,34 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Nosotros</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"/>
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="fonts/stylesheet.css">
     <script async>(function (w, d) {
-        var h = d.head || d.getElementsByTagName("head")[0];
-        var s = d.createElement("script");
-        s.setAttribute("type", "text/javascript");
-        s.setAttribute("src", "https://app.bluecaribu.com/conversion/integration/20fe0ad0db71eacbd93a3c703a51c6b4");
-        h.appendChild(s);
-    })(window, document);</script>
+            var h = d.head || d.getElementsByTagName("head")[0];
+            var s = d.createElement("script");
+            s.setAttribute("type", "text/javascript");
+            s.setAttribute("src", "https://app.bluecaribu.com/conversion/integration/20fe0ad0db71eacbd93a3c703a51c6b4");
+            h.appendChild(s);
+        })(window, document);</script>
 </head>
 
-<body style="background: url('img/img_nosotros_2x.png') no-repeat center center fixed;
+<body style="background: url('img/img_contacto_2x.png') no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 background-size: cover;
 -o-background-size: cover;">
-<!-- inicio de barra de navegación -->
+
+<!-- inicio de barra denavegación -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php"><img src="img/logo.png" width="50"></a>
@@ -51,7 +52,7 @@ background-size: cover;
                     <a class="nav-link " href="equipo.html">Equipo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="contacto.php">Contacto</a>
+                    <a class="nav-link " href="contacto.html">Contacto</a>
                 </li>
 
             </ul>
@@ -63,42 +64,34 @@ background-size: cover;
     </div>
 </nav>
 <!-- fin de barra de navegación -->
-<div class="container-fluid text-center bg-dark vh-100 text-white" style="--bs-bg-opacity: .8;">
+
+<div class="container text-white">
     <div class="row">
-        <div class="col-4 mx-auto">
-            <div>
-                <img src="img/logo_blanco.png"/>
-            </div>
+        <div class="col text-center">
+            <img class="img-fluid" src="img/logo_blanco.png" alt="">
             <h1>
-                Acerca de Nosotros
+                Conversemos
             </h1>
-            <div>
-                <p>
-                    TellU es un sitio abierto y únicamente interactivo que tiene como único objetivo relacionar y
-                    persuadir a personas de todo el mundo, producto de notas escritas hacía una persona de forma
-                    anónima. La cual puede visualizarla como cualquier nota de bandeja
-                    de mensajes de una red social e incluso, se encuentra al alcance de publicar nuevos mensajes
-                    anónimos hacia la persona que crea que haya sido emisora del mensaje.
-                </p>
-            </div>
+
         </div>
-
-        <div class="row">
-
-            <div>
-                <h5>contacto@tellu.com</h5>
-            </div>
-            <div>
-                <h5>(+051) 987-654-321</h5>
-            </div>
-            <div>
-                <h5>Av. Industrial n°7,Lurín</h5>
-            </div>
-            <div class="py-5">
-                <a class="boton-efecto" href="contacto.php" class="">Página de contacto</a>
-            </div>
+    </div>
+    <div class="row text-center">
+        <div class="col col-sm-8 col-md-4 mx-auto">
+            <form>
+                <div>
+                    <label for="email" class="form-label">Tu correo: </label> <br>
+                    <INPUT class="form-control" TYPE="email" NAME="email" MAXLENGTH=18 placeholder="correo@example.com">
+                </div>
+                <div>
+                    <label for="text" class="form-label">Tu comentario</label> <br>
+                    <textarea class="form-control" rows="4" NAME="comentario"
+                              placeholder="Escribe un comentario sobre nosotros..."></textarea>
+                </div>
+                <div class="py-5">
+                    <button type="submit" class="boton-efecto">Enviar</button>
+                </div>
+            </form>
         </div>
-
     </div>
 </div>
 <!-- inicio de footer -->
@@ -108,6 +101,7 @@ background-size: cover;
     </div>
 </footer>
 <!-- fin de footer -->
+
 </body>
 
 </html>
