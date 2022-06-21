@@ -1,37 +1,50 @@
 <?php
-function listarMensajes($nombre, $apellido, $pais)
+require "propiedades.php";
+function listarMensajes($nombre, $apellido, $pais): array
 {
+    $datetime = date("Y-m-d H:i:s");
     $log_file = fopen("log.txt", "a");
-    $db_file = fopen("db.txt", "r") or die("no se puede abrir el archivo!");
     $mensajes = array();
-    while (!feof($db_file)) {
-        $linea = fgets($db_file);
-        $datos = explode("@", $linea);
-        if (count($datos) == 5) {
-            //evaluamos únicamente si es que es del mismo pais
-            if ($pais == $datos[2]) {
-                if (equivalente($nombre, $datos[0]) && equivalente($apellido, $datos[1])) {
-                    $mensajes[] = array(
-                        "nombre" => $datos[0],
-                        "apellido" => $datos[1],
-                        "mensaje" => $datos[3],
-                        "fecha" => $datos[4]
-                    );
-                }
+
+    try {
+        $sql = "SELECT mensaje, nombre_destinatario, apellido_destinatario, timestamp FROM mensajes WHERE pais = ?";
+
+        $server = $GLOBALS["DbServername"];
+        $dbname = $GLOBALS["DbName"];
+        $user = $GLOBALS["DbUsername"];
+        $pass = $GLOBALS["DbPassword"];
+
+        $conn = new PDO("mysql:host=$server;dbname=$dbname;charset=utf8mb4", $user, $pass);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$pais]);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $filas = $stmt->fetchAll();
+
+        foreach ($filas as $fila => $contenido) {
+            if (equivalente($nombre, $contenido['nombre_destinatario']) && equivalente($apellido, $contenido['apellido_destinatario'])) {
+                $mensajes[] = array(
+                    "nombre" => $contenido['nombre_destinatario'],
+                    "apellido" => $contenido['apellido_destinatario'],
+                    "mensaje" => $contenido['mensaje'],
+                    "fecha" => $contenido['timestamp']
+                );
             }
-
-        }else{
-            fwrite($log_file, "no se pudo leer el registro: {$linea}, el conteo de campos no coincide con 5");
         }
+        fwrite($log_file, "$datetime Consulta SQL exitosa $sql\n");
+        $conn = null;
+    } catch (PDOException $e) {
 
-
+        $error = $e->getMessage();
+        fwrite($log_file, "$datetime EXCEPCIÓN SQL con: $sql, ERROR: $error\n");
     }
+
+    //-----------------------
     fclose($log_file);
-    fclose($db_file);
     return $mensajes;
 }
 
-function equivalente($dato1, $dato2)
+function equivalente($dato1, $dato2): bool
 {
     //removemos tildes, dieresis, etc
     $dato1 = remover_tildes($dato1);
@@ -42,17 +55,20 @@ function equivalente($dato1, $dato2)
     //convertimos en arrays
     $arrayDato1 = explode(" ", $dato1);
     $arrayDato2 = explode(" ", $dato2);
+    $arrayDato1Trimmed = array();
+    $arrayDato2Trimmed = array();
+
     $numeroCoincidencias = 0;
     //limpiamos los datos
     foreach ($arrayDato1 as $dato1) {
-        $dato1 = trim($dato1);
+        $arrayDato1Trimmed[] = trim($dato1);
     }
     foreach ($arrayDato2 as $dato2) {
-        $dato2 = trim($dato2);
+        $arrayDato2Trimmed[] = trim($dato2);
     }
     //comparamos los datos
-    foreach ($arrayDato1 as $dato1) {
-        foreach ($arrayDato2 as $dato2) {
+    foreach ($arrayDato1Trimmed as $dato1) {
+        foreach ($arrayDato2Trimmed as $dato2) {
             if ($dato1 == $dato2) {
                 $numeroCoincidencias++;
             }
@@ -62,6 +78,7 @@ function equivalente($dato1, $dato2)
     return $numeroCoincidencias >= 1;
 
 }
+
 //función para remover las tildes y dieresis de letras, para poder hacer comparación fonética de los nombres
 // esta función es una implementación de la autoría de los creadores de WordPress, nuestro grupo no la ha hecho
 function remover_tildes($string) {
