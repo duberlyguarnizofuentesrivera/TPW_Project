@@ -57,8 +57,8 @@ background-size: cover;
 
             </ul>
             <form class="d-flex">
-                <i class="fa-brands fa-facebook px-2"></i>
-                <i class="fa-brands fa-twitter px-2"></i>
+                <a href="https://www.facebook.com/TELL-U-111749471558640"><i class="fa-brands fa-facebook px-2"></i></a>
+                <a href="https://twitter.com/TELLU83367017"><i class="fa-brands fa-twitter px-2"></i></a>
             </form>
         </div>
     </div>

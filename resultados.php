@@ -54,8 +54,8 @@
 
             </ul>
             <form class="d-flex">
-                <i class="fa-brands fa-facebook px-2"></i>
-                <i class="fa-brands fa-twitter px-2"></i>
+                <a href="https://www.facebook.com/TELL-U-111749471558640"><i class="fa-brands fa-facebook px-2"></i></a>
+                <a href="https://twitter.com/TELLU83367017"><i class="fa-brands fa-twitter px-2"></i></a>
             </form>
         </div>
     </div>
@@ -65,7 +65,7 @@
 <div class="container cardContainer">
     <h1 class="text-white mb-3">Resultados</h1>
     <?php
-    include 'listarMensajes.php';
+    include 'php/listarMensajes.php';
     $registros = array();
 
     $nombre = ucwords(strtolower($_POST['txtNombre']));
@@ -80,7 +80,8 @@
         <?php
         $index = 1;
         foreach ($registros as $registro) {
-            $fecha = date('d/m/Y', $registro['fecha']);
+            $fechaInt = strtotime($registro['fecha']);
+            $fecha = date('d/m/Y', $fechaInt);
             $nombreOriginal = ucwords(strtolower($registro['nombre']));
             $apellidoOriginal = ucwords(strtolower($registro['apellido']));
             echo "<li class=\"messageCardItem\" style=\"--animation-order:" . $index . "\"><a class=\"messageCardLink\">

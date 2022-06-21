@@ -16,8 +16,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Resultados - Tell U</title>
     <script async>(function (w, d) {
-            var h = d.head || d.getElementsByTagName("head")[0];
-            var s = d.createElement("script");
+            let h = d.head || d.getElementsByTagName("head")[0];
+            let s = d.createElement("script");
             s.setAttribute("type", "text/javascript");
             s.setAttribute("src", "https://app.bluecaribu.com/conversion/integration/20fe0ad0db71eacbd93a3c703a51c6b4");
             h.appendChild(s);
@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link " href="buscar.html">Buscar Mensaje</a>
+                    <a class="nav-link " href="buscar.php">Buscar Mensaje</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="nosotros.html">Nosotros</a>
@@ -53,8 +53,8 @@
 
             </ul>
             <form class="d-flex">
-                <i class="fa-brands fa-facebook px-2"></i>
-                <i class="fa-brands fa-twitter px-2"></i>
+                <a href="https://www.facebook.com/TELL-U-111749471558640"><i class="fa-brands fa-facebook px-2"></i></a>
+                <a href="https://twitter.com/TELLU83367017"><i class="fa-brands fa-twitter px-2"></i></a>
             </form>
         </div>
     </div>
@@ -72,7 +72,7 @@
                     <label for="cmbPais" class="formbuilder-select-label">País<span class="tooltip-element"
                                                                                     tooltip="Selecciona el país del destinatario. Si escoges el país incorrecto, tu mensaje podría no leerse">?</span></label>
                     <select class="form-control" name="cmbPais" id="cmbPais">
-                        <option value="Chile" selected="true" id="cmbPais-1">Chile</option>
+                        <option value="Chile" selected id="cmbPais-1">Chile</option>
                         <option value="Colombia" id="cmbPais-2">Colombia</option>
                         <option value="Perú" id="cmbPais-3">Perú</option>
                     </select>
@@ -82,7 +82,7 @@
                                 class="formbuilder-required">*</span><span class="tooltip-element"
                                                                            tooltip="Agrega aquí los nombres, lo más completo que puedas.">?</span></label>
                     <input type="text" placeholder="Ej.: Luis Pedro" class="form-control" name="txtNombre"
-                           access="false" maxlength="50" id="txtNombre"
+                            maxlength="50" id="txtNombre"
                            title="Agrega aquí los nombres, lo más completo que puedas."
                            required="required" aria-required="true">
                 </div>
@@ -91,7 +91,7 @@
                                 class="formbuilder-required">*</span><span class="tooltip-element"
                                                                            tooltip="Agrega aquí los apellidos del destinatario, lo más completo que puedas.">?</span></label>
                     <input type="text" placeholder="Ej.: Gonzales Landa " class="form-control" name="txtApellido"
-                           access="false" maxlength="50" id="txtApellido"
+                            maxlength="50" id="txtApellido"
                            title="Agrega aquí los apellidos del destinatario, lo más completo que puedas."
                            required="required" aria-required="true">
                 </div>
