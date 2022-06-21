@@ -18,6 +18,8 @@ caption, tbody, tfoot, thead, tr, th, td
 body              {line-height: 1;}
 ol, ul            {list-style: none;}
 blockquote, q     {quotes: none;}
+
+/*noinspection CssOverwrittenProperties*/
 blockquote:before, blockquote:after,
 q:before, q:after {content: '';	content: none;}
 :focus            {outline: 0;}
@@ -49,6 +51,7 @@ h2{
 	font-size: 18px;
 }
 
+/*noinspection CssRedundantUnit*/
 #container {
 	width: 865px;
 	margin: 0px auto;
@@ -177,6 +180,8 @@ div.glyph_range {
 	position: absolute;
 	bottom: 0;
 }
+
+/*noinspection CssOverwrittenProperties*/
 .fullreverse {
 	background:  #000 !important;
 	color:  #fff !important;
@@ -197,6 +202,7 @@ div.glyph_range {
 	line-height: 1.2em;
 }
 
+/*noinspection CssOverwrittenProperties*/
 .sample_table td:first-child {
 	background-color: #eee;
 	text-align: right;
@@ -224,6 +230,7 @@ code {
   background: #eee; 
 }
 
+/*noinspection ALL*/
 .reverse,.reversed { background:  #000 !important;color:  #fff !important; border: none !important;}
 
 #bodycomparison {
@@ -258,14 +265,20 @@ code {
 .fontbody {
  position: relative;
 }
+
+/*noinspection CssNoGenericFontName*/
 .arialbody{
 	font-family: Arial;
 	position: relative;
 }
+
+/*noinspection CssNoGenericFontName*/
 .verdanabody{
 	font-family: Verdana;
 	position: relative;
 }
+
+/*noinspection CssNoGenericFontName*/
 .georgiabody{
 	font-family: Georgia;
 	position: relative;

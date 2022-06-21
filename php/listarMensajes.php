@@ -182,7 +182,5 @@ function remover_tildes($string) {
         chr(197).chr(190) => 'z', chr(197).chr(191) => 's'
     );
 
-    $string = strtr($string, $chars);
-
-    return $string;
+    return strtr($string, $chars);
 }

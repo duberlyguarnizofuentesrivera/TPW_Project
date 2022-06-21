@@ -69,8 +69,7 @@
             <h3 class="mb-5">Ingresa los datos y da clic en buscar, para que veas los resultados</h3>
             <form method="post" action="resultados.php">
                 <div class="formbuilder-select form-group field-cmbPais py-1">
-                    <label for="cmbPais" class="formbuilder-select-label">País<span class="tooltip-element"
-                                                                                    tooltip="Selecciona el país del destinatario. Si escoges el país incorrecto, tu mensaje podría no leerse">?</span></label>
+                    <label for="cmbPais" class="formbuilder-select-label">País<span class="tooltip-element">?</span></label>
                     <select class="form-control" name="cmbPais" id="cmbPais">
                         <option value="Chile" selected id="cmbPais-1">Chile</option>
                         <option value="Colombia" id="cmbPais-2">Colombia</option>
@@ -79,8 +78,7 @@
                 </div>
                 <div class="formbuilder-text form-group field-txtNombre py-1">
                     <label for="txtNombre" class="formbuilder-text-label">Nombres<span
-                                class="formbuilder-required">*</span><span class="tooltip-element"
-                                                                           tooltip="Agrega aquí los nombres, lo más completo que puedas.">?</span></label>
+                                class="formbuilder-required">*</span><span class="tooltip-element">?</span></label>
                     <input type="text" placeholder="Ej.: Luis Pedro" class="form-control" name="txtNombre"
                             maxlength="50" id="txtNombre"
                            title="Agrega aquí los nombres, lo más completo que puedas."
@@ -88,8 +86,7 @@
                 </div>
                 <div class="formbuilder-text form-group field-txtNombre py-1">
                     <label for="txtApellido" class="formbuilder-text-label">Apellidos<span
-                                class="formbuilder-required">*</span><span class="tooltip-element"
-                                                                           tooltip="Agrega aquí los apellidos del destinatario, lo más completo que puedas.">?</span></label>
+                                class="formbuilder-required">*</span><span class="tooltip-element">?</span></label>
                     <input type="text" placeholder="Ej.: Gonzales Landa " class="form-control" name="txtApellido"
                             maxlength="50" id="txtApellido"
                            title="Agrega aquí los apellidos del destinatario, lo más completo que puedas."
