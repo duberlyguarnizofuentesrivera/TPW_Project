@@ -45,17 +45,21 @@
             $filas = $stmt->fetchAll();
             echo "<table class='table table-striped table-hover'>
 <thead class='thead-dark'>
+<th scope='col'>Id</th>
+<th scope='col'>País</th>
 <th scope='col'>Nombre</th>
 <th scope='col'>Apellido</th>
 <th scope='col'>Fecha</th>
 <th scope='col'>mensaje</th>
 </thead> ";
             foreach ($filas as $fila => $contenido) {
+                $id =$contenido['id'];
+                $pais =$contenido['pais'];
                 $nombre = $contenido['nombre_destinatario'];
                 $apellido = $contenido['apellido_destinatario'];
                 $mensaje = $contenido['mensaje'];
                 $fecha = $contenido['timestamp'];
-                echo "<tr><td>$nombre</td><td>$apellido</td><td>$fecha</td><td>$mensaje</td></tr>";
+                echo "<tr><td>$id</td><td>$pais</td><td>$nombre</td><td>$apellido</td><td>$fecha</td><td>$mensaje</td></tr>";
             }
             echo "</table>";
         } else {
