@@ -16,7 +16,7 @@ function validarFormulario(): void
             $GLOBALS['formErr'] = "Por favor, rellene todos los campos.";
         } else {
             if (mensajeValido($mensaje, $nombre, $apellido)) {
-                //guardar en la base de datos!
+                echo "Implementación realizada en JS";
             } else {
                 $nombre = $apellido = $pais = $mensaje = "";
                 $GLOBALS['mensajeErr'] = "El mensaje no puede contener información sensible (nombres, apellidos, etc.)";
@@ -30,8 +30,7 @@ function limpiarCaracteresEspeciales($data): string
 {
     $data = trim($data);
     $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+    return htmlspecialchars($data);
 }
 
 /*valida que no haya campos vacíos*/

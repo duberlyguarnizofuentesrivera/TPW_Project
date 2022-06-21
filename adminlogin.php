@@ -23,18 +23,18 @@
         <div class="my-3 row justify-content-sm-center">
             <label for="usuario" class="col-sm-2 col-form-label">Usuario</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="usuario">
+                <input type="text" class="form-control" id="usuario" name="usuario">
             </div>
         </div>
         <div class="my-3 row justify-content-sm-center">
             <label for="password" class="col-sm-2 col-form-label">Contraseña</label>
             <div class="col-sm-4">
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" id="password" name="password">
             </div>
         </div>
         <div class="my-3 row justify-content-sm-center">
             <div class="col-sm-6">
-                <button class="boton-efecto">Iniciar sesión</button>
+                <input class="boton-efecto" type="submit" value="Iniciar sesión" name="btnSubmit"/>
             </div>
         </div>
     </form>

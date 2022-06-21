@@ -52,7 +52,7 @@ background-size: cover;
                     <a class="nav-link " href="equipo.html">Equipo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="contacto.html">Contacto</a>
+                    <a class="nav-link " href="contacto.php">Contacto</a>
                 </li>
 
             </ul>
