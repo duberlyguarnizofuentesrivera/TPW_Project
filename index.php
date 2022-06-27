@@ -8,9 +8,11 @@
           crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
+    <script defer src="js/buscarSeguimiento.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="fonts/stylesheet.css">
     <script src="js/mostrarPopUp.js" defer></script>
+    <script defer src="js/buscarSeguimiento.js"></script>
     <script src="js/validacionFormulario.js" defer></script>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Bienvenido - Tell U</title>
@@ -52,6 +54,11 @@
                 </li>
 
             </ul>
+            <form class="d-flex">
+                <input class="form-control form-control-sm me-2" id="txtBuscarSeguimiento" type="search" placeholder="Cod. Seguimiento"
+                       aria-label="Search">
+                <a class="btn btn-sm btn-outline-success" onclick="buscarSeguimiento()">Seguimiento</a>
+            </form>
             <form class="d-flex">
                 <a href="https://www.facebook.com/TELL-U-111749471558640"><i class="fa-brands fa-facebook px-2"></i></a>
                 <a href="https://twitter.com/TELLU83367017"><i class="fa-brands fa-twitter px-2"></i></a>
@@ -115,6 +122,7 @@
 </footer>
 <!-- fin de footer -->
 
+
 <div id="writeMessagePopUp" class="messageForm invisible">
     <div class="p-2"><i id="btnCerrar" class="fa-solid fa-xmark"></i></div>
     <div id="backgroundOverlay" class="backgroundOverlay"></div>
@@ -159,6 +167,12 @@
             <span id="formErrorSpan"></span>
             <button type="submit" class="boton-efecto text-white " id="btnCrearMensaje">Crear!
             </button>
+        </div>
+        <div class="form-group py-1">
+            <label for="txtSeguimiento" class="form-label">Código de seguimiento <i class="fa-solid fa-circle-info"
+                                                                                    title="Si deseas ver un registro de tus mensajes, ingresa tu código de seguimiento, si no tienes uno, se creará uno después de enviar tu mensaje"> </i></label>
+            <input type="text" class="form-control" name="txtSeguimiento"
+                   maxlength="40" id="txtSeguimiento">
         </div>
     </form>
 </div>

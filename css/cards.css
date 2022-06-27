@@ -132,8 +132,8 @@ body{
 
 .messageCardFooter {
     margin-top: auto;
-    font-size: calc(var(--base-grid) * 2);
-    line-height: calc(var(--base-grid) * 2);
+    font-size: calc(var(--base-grid) * 1.5);
+    line-height: calc(var(--base-grid) * 1.5);
     display: flex;
     justify-content: space-between;
 }

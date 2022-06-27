@@ -1,0 +1,11 @@
+.follow-up-code {
+    border: dashed coral;
+    margin: 2rem;
+    padding: 0.7rem;
+    color: white;
+}
+
+body {
+    background: lightslategrey;
+    color: white;
+}
