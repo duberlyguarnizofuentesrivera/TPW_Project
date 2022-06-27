@@ -1,36 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-          crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+          crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
             crossorigin="anonymous"></script>
     <script defer src="js/buscarSeguimiento.js"></script>
+    <link rel="stylesheet" href="css/sentmessage.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="fonts/stylesheet.css">
+    <script src="js/mostrarPopUp.js" defer></script>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Resultados - Tell U</title>
     <script async>(function (w, d) {
-            var h = d.head || d.getElementsByTagName("head")[0];
-            var s = d.createElement("script");
+            let h = d.head || d.getElementsByTagName("head")[0];
+            let s = d.createElement("script");
             s.setAttribute("type", "text/javascript");
             s.setAttribute("src", "https://app.bluecaribu.com/conversion/integration/20fe0ad0db71eacbd93a3c703a51c6b4");
             h.appendChild(s);
         })(window, document);</script>
 </head>
-
-<body style="background: url('img/img_contacto_2x.png') no-repeat center center fixed;
--webkit-background-size: cover;
--moz-background-size: cover;
-background-size: cover;
--o-background-size: cover;">
-
+<body>
 <!-- inicio de barra de navegación -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
@@ -72,44 +66,48 @@ background-size: cover;
     </div>
 </nav>
 <!-- fin de barra de navegación -->
-
-<div class="container text-white">
-    <div class="row">
+<div class="container d-block mx-auto">
+    <div class="row pt-5">
         <div class="col text-center">
-            <img class="img-fluid" src="img/logo_blanco.png" alt="">
-            <h1>
-                Conversemos
-            </h1>
+            <h2>Mensaje creado correctamente!</h2>
+        </div>
+    </div>
+    <div class="row py-5 mx-auto">
+        <div class="col text-center">
+            <p>Tu código de seguimiento es el siguiente:</p>
 
         </div>
     </div>
-    <div class="row text-center">
-        <div class="col col-sm-8 col-md-4 mx-auto">
-            <form>
-                <div>
-                    <label for="email" class="form-label">Tu correo: </label> <br>
-                    <INPUT class="form-control" TYPE="email" NAME="email" MAXLENGTH=18 placeholder="correo@example.com">
-                </div>
-                <div>
-                    <label for="text" class="form-label">Tu comentario</label> <br>
-                    <textarea class="form-control" rows="4" NAME="comentario"
-                              placeholder="Escribe un comentario sobre nosotros..."></textarea>
-                </div>
-                <div class="py-5">
-                    <button type="submit" class="boton-efecto">Enviar</button>
-                </div>
-            </form>
+    <div class="row py-3">
+        <div class="col text-center">
+            <span class="follow-up-code">
+                <?php
+                $follow_up = $_GET["followup"];
+                echo $follow_up;
+                ?>
+            </span>
+        </div>
+    </div>
+    <div class="row py-5">
+        <div class="col text-center">
+            <p class="text-start">Guarda este código si deseas el mensaje que acabas de crear, para que puedas hacer un seguimiento. Si escribes un mensaje nuevo, puedes poner este código en el formulario al momento de generarlo, para que puedas hacer seguimiento a varios mensajes a la vez.</p>
+        </div>
+    </div>
+    <div class="row mx-auto">
+        <div class="col text-center">
+            <a href="index.php" class="boton-efecto">Regresar</a>
+        </div>
+        <div class="col text-center">
+            <a href="buscar.php" class="boton-efecto">Buscar mensajes</a>
         </div>
     </div>
 </div>
 <!-- inicio de footer -->
-<footer class="footer mt-auto py-3 bg-light text-center fixed-bottom">
-    <div class="container">
-        <span class="text-muted">Página desarrollada por el grupo 4</span>
+<footer class="footer mt-auto py-3 bg-light text-center fixed-bottom ">
+    <div class="container ">
+        <span class="text-muted ">Página desarrollada por el grupo 4</span>
     </div>
 </footer>
 <!-- fin de footer -->
-
 </body>
-
 </html>

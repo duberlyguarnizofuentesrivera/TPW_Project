@@ -9,11 +9,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $apellido = $_POST["txtApellido"];
     $pais = $_POST["cmbPais"];
     $mensaje = $_POST["txtMensaje"];
+    $seguimiento = $_POST["txtSeguimiento"];
     $sql = "";
+    $has_previous_follow_code = false;
+    if ($seguimiento == null or strlen($seguimiento) != 40) {
+        $has_previous_follow_code = false;
+        $seguimiento = sha1($nombre . $apellido . $pais . $mensaje . $datetime);
+    } else {
+        $has_previous_follow_code = true;
+    }
 
     try {
         $registro = $nombre . "@" . $apellido . "@" . $pais . "@" . $mensaje . "@" . $_SERVER["REQUEST_TIME"] . "\n";
-        $sql = "INSERT INTO mensajes (mensaje, pais, nombre_destinatario, apellido_destinatario) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO mensajes (mensaje, pais, nombre_destinatario, apellido_destinatario, seguimiento) VALUES (?, ?, ?, ?, ?)";
         require "propiedades.php";
         $server = $GLOBALS["DbServername"];
         $dbname = $GLOBALS["DbName"];
@@ -24,12 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$mensaje, $pais, $nombre, $apellido]);
+        $stmt->execute([$mensaje, $pais, $nombre, $apellido, $seguimiento]);
 
         fwrite($log_file, "$datetime registro creado: $registro");
         fclose($log_file);
         $conn = null;
-        header("Location: ../buscar.php");
+        $newFollow = $has_previous_follow_code ? "yes" : "no";
+        $nextAddress = "Location: ../mensajeenviado.php?newfollow=$newFollow&followup=$seguimiento";
+        header($nextAddress);
         exit();
     } catch (PDOException $e) {
 
