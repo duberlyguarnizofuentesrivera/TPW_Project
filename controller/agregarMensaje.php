@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         fclose($log_file);
         $conn = null;
         $newFollow = $has_previous_follow_code ? "yes" : "no";
-        $nextAddress = "Location: ../mensajeenviado.php?newfollow=$newFollow&followup=$seguimiento";
+        $nextAddress = "Location: ../view/mensajeenviado.php?newfollow=$newFollow&followup=$seguimiento";
         header($nextAddress);
         exit();
     } catch (PDOException $e) {
