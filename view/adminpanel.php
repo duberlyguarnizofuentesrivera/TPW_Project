@@ -39,6 +39,9 @@
                 <li class="nav-item">
                     <a class="nav-link " href="contacto.php">Contacto</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link text-danger" href="adminlogin.php">Admin Login</a>
+                </li>
 
             </ul>
             <form class="d-flex">
