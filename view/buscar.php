@@ -1,19 +1,21 @@
 <html lang="es">
-
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-          crossorigin="anonymous">
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
             crossorigin="anonymous"></script>
     <script defer src="js/buscarSeguimiento.js"></script>
-    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="fonts/stylesheet.css">
+    <script src="js/mostrarPopUp.js" defer></script>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Bienvenido - Tell U</title>
+    <title>Resultados - Tell U</title>
     <script async>(function (w, d) {
             let h = d.head || d.getElementsByTagName("head")[0];
             let s = d.createElement("script");
@@ -22,12 +24,11 @@
             h.appendChild(s);
         })(window, document);</script>
 </head>
-
-<body class="bg-celeste">
+<body>
 <!-- inicio de barra de navegación -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php"><img src="img/logo.png" width="50" alt="navigation bar logo"></a>
+        <a class="navbar-brand" href="../index.php"><img src="img/logo.png" width="50" alt="navigation bar logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -66,72 +67,53 @@
 </nav>
 <!-- fin de barra de navegación -->
 
-
-<div class="container">
-    <div class="row pt-5 mb-2">
-        <div class="col text-center">
-            <h2 class="py-2">Seguimiento de mensajes</h2>
+<div class="container searchContainer">
+    <div class="row">
+        <div class="col col-3"></div>
+        <div class="col col-6">
+            <h1 class="mb-3">Buscar mensajes</h1>
+            <h3 class="mb-5">Ingresa los datos y da clic en buscar, para que veas los resultados</h3>
+            <form method="post" action="resultados.php">
+                <div class="formbuilder-select form-group field-cmbPais py-1">
+                    <label for="cmbPais" class="formbuilder-select-label">País<span class="tooltip-element">?</span></label>
+                    <select class="form-control" name="cmbPais" id="cmbPais">
+                        <option value="Chile" selected id="cmbPais-1">Chile</option>
+                        <option value="Colombia" id="cmbPais-2">Colombia</option>
+                        <option value="Perú" id="cmbPais-3">Perú</option>
+                    </select>
+                </div>
+                <div class="formbuilder-text form-group field-txtNombre py-1">
+                    <label for="txtNombre" class="formbuilder-text-label">Nombres<span
+                                class="formbuilder-required">*</span><span class="tooltip-element">?</span></label>
+                    <input type="text" placeholder="Ej.: Luis Pedro" class="form-control" name="txtNombre"
+                            maxlength="50" id="txtNombre"
+                           title="Agrega aquí los nombres, lo más completo que puedas."
+                           required="required" aria-required="true">
+                </div>
+                <div class="formbuilder-text form-group field-txtNombre py-1">
+                    <label for="txtApellido" class="formbuilder-text-label">Apellidos<span
+                                class="formbuilder-required">*</span><span class="tooltip-element">?</span></label>
+                    <input type="text" placeholder="Ej.: Gonzales Landa " class="form-control" name="txtApellido"
+                            maxlength="50" id="txtApellido"
+                           title="Agrega aquí los apellidos del destinatario, lo más completo que puedas."
+                           required="required" aria-required="true">
+                </div>
+                <div class="text-white text-center py-3 mt-5">
+                    <button type="submit" class="boton-efecto text-white " id="buscar">Buscar!</button>
+                </div>
+            </form>
         </div>
-
+        <div class="col col-3"></div>
     </div>
-    <form method="post">
-        <div class="row py-3">
-            <p class="my-5">Estos son los mensajes enviados con el código de seguimiento que has dado:</p>
-            <ol class="messageCard">
-                <?php
-                if (isset($_GET['followup'])) {
-                    $seguimiento = $_GET["followup"];
-                    include 'php/listarMensajes.php';
-                    $registros = array();
-                    $registros = listarMensajes("", "", $seguimiento);
-                    $index = 1;
-
-                    foreach ($registros as $registro) {
-                        $fechaInt = strtotime($registro['fecha']);
-                        $fecha = date('d/m/Y', $fechaInt);
-                        $nombreOriginal = ucwords(strtolower($registro['nombre']));
-                        $apellidoOriginal = ucwords(strtolower($registro['apellido']));
-                        echo "<li class=\"messageCardItem\" style=\"--animation-order:" . $index . "\"><a class=\"messageCardLink\">
-                <div class=\"messageCardContent articles__content--lhs\">
-                    <h3 class=\"messageCardTitle\">" . $registro['mensaje'] . "</h3>
-                    <div class=\"messageCardFooter\">
-                        <span>" . $nombreOriginal . " " . $apellidoOriginal . "</span>
-                        <span>" . $fecha . "</span>
-                    </div>
-                </div>
-                <div class=\"messageCardContent articles__content--rhs\" aria-hidden=\"true\">
-                    <h3 class=\"messageCardTitle\">" . $registro['mensaje'] . "</h3>
-                    <div class=\"messageCardFooter\">
-                        <p>Perú</p>
-                        <span>" . $fecha . "</span>
-                    </div>
-                </div>
-            </a>
-        </li>";
-                        $index++;
-                    }
-                } else {
-                    echo "<div><h3>No se ha dado un código de seguimiento válido</h3></div>";
-                }
-                ?>
-            </ol>
-        </div>
-        <div class="row py-3">
-            <div class="col text-center">
-                <a class="boton-efecto" href="index.php">Retornar</a>
-            </div>
-        </div>
-    </form>
 </div>
-
 
 <!-- inicio de footer -->
 <footer class="footer mt-auto py-3 bg-light text-center fixed-bottom ">
     <div class="container ">
-        <span class="text-muted ">Página desarrollada por el grupo 4</span>
+        <span class="text-muted ">Página desarrollada por el grupo 4.  <a class="text-muted" href="adminlogin.php">Admin login</a></span>
     </div>
 </footer>
 <!-- fin de footer -->
-</body>
 
+</body>
 </html>

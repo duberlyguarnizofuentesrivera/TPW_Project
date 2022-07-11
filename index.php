@@ -8,12 +8,12 @@
           crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
-    <script defer src="js/buscarSeguimiento.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="fonts/stylesheet.css">
-    <script src="js/mostrarPopUp.js" defer></script>
-    <script defer src="js/buscarSeguimiento.js"></script>
-    <script src="js/validacionFormulario.js" defer></script>
+    <script defer src="view/js/buscarSeguimiento.js"></script>
+    <link rel="stylesheet" href="view/css/style.css">
+    <link rel="stylesheet" href="view/fonts/stylesheet.css">
+    <script src="view/js/mostrarPopUp.js" defer></script>
+    <script defer src="view/js/buscarSeguimiento.js"></script>
+    <script src="view/js/validacionFormulario.js" defer></script>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Bienvenido - Tell U</title>
     <script async>(function (w, d) {
@@ -29,7 +29,7 @@
 <!-- inicio de barra de navegación -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php"><img src="img/logo.png" width="50" alt="navigation bar logo"></a>
+        <a class="navbar-brand" href="index.php"><img src="view/img/logo.png" width="50" alt="navigation bar logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,20 +37,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link " href="buscar.php">Buscar Mensaje</a>
+                    <a class="nav-link " href="view/buscar.php">Buscar Mensaje</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="nosotros.html">Nosotros</a>
+                    <a class="nav-link" aria-current="page" href="view/nosotros.html">Nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="servicios.html">Servicios</a>
+                    <a class="nav-link" href="view/servicios.html">Servicios</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="equipo.html">Equipo</a>
+                    <a class="nav-link " href="view/equipo.html">Equipo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="contacto.php">Contacto</a>
+                    <a class="nav-link " href="view/contacto.php">Contacto</a>
                 </li>
 
             </ul>
@@ -75,7 +75,7 @@
             <div class="col text-center">
                 <div class="row">
                     <div class="col">
-                        <img class="w-50" src="img/logo_blanco.png" alt="logo">
+                        <img class="w-50" src="view/img/logo_blanco.png" alt="logo">
                     </div>
                     <div class="col text-start py-3">
                         <div class="card">
@@ -100,7 +100,7 @@
         </div>
         <div class="col text-center ">
             <div class="sticky-md-bottom sticky-xs-top ">
-                <img class="img-fluid h-75 align-bottom g-0" src="img/img_index.png" alt="main image">
+                <img class="img-fluid h-75 align-bottom g-0" src="view/img/img_index.png" alt="main image">
                 <div class="col text-center position-absolute bottom-0 start-50 translate-middle text-white">
                     <a onclick="writeMessage()" href="#" class="boton-efecto text-white " id="btnNuevoMensaje">Dejar un
                         mensaje</a>
@@ -117,7 +117,7 @@
 <!-- inicio de footer -->
 <footer class="footer mt-auto py-3 bg-light text-center fixed-bottom ">
     <div class="container ">
-        <span class="text-muted ">Página desarrollada por el grupo 4</span>
+        <span class="text-muted ">Página desarrollada por el grupo 4  <a class="text-muted" href="view/adminlogin.php">admin login</a></span>
     </div>
 </footer>
 <!-- fin de footer -->
@@ -129,7 +129,7 @@
     <div>
         <h1 id="formH1">Nuevo Mensaje</h1>
     </div>
-    <form method="post" action="php/agregarMensaje.php">
+    <form method="post" action="controller/agregarMensaje.php">
         <div class="form-group py-1">
             <label for="cmbPais" class="form-label">País <span class="formValidationMessage"
                                                                id="paisErrorSpan"></span></label>

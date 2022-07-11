@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -10,15 +11,15 @@
             integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
             crossorigin="anonymous"></script>
     <script defer src="js/buscarSeguimiento.js"></script>
-    <link rel="stylesheet" href="css/sentmessage.css">
+    <link rel="stylesheet" href="css/cards.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="fonts/stylesheet.css">
     <script src="js/mostrarPopUp.js" defer></script>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Resultados - Tell U</title>
     <script async>(function (w, d) {
-            let h = d.head || d.getElementsByTagName("head")[0];
-            let s = d.createElement("script");
+            var h = d.head || d.getElementsByTagName("head")[0];
+            var s = d.createElement("script");
             s.setAttribute("type", "text/javascript");
             s.setAttribute("src", "https://app.bluecaribu.com/conversion/integration/20fe0ad0db71eacbd93a3c703a51c6b4");
             h.appendChild(s);
@@ -28,7 +29,7 @@
 <!-- inicio de barra de navegación -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php"><img src="img/logo.png" width="50" alt="navigation bar logo"></a>
+        <a class="navbar-brand" href="../index.php"><img src="img/logo.png" width="50" alt="navigation bar logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -66,48 +67,59 @@
     </div>
 </nav>
 <!-- fin de barra de navegación -->
-<div class="container d-block mx-auto">
-    <div class="row pt-5">
-        <div class="col text-center">
-            <h2>Mensaje creado correctamente!</h2>
-        </div>
-    </div>
-    <div class="row py-5 mx-auto">
-        <div class="col text-center">
-            <p>Tu código de seguimiento es el siguiente:</p>
 
-        </div>
-    </div>
-    <div class="row py-3">
-        <div class="col text-center">
-            <span class="follow-up-code">
-                <?php
-                $follow_up = $_GET["followup"];
-                echo $follow_up;
-                ?>
-            </span>
-        </div>
-    </div>
-    <div class="row py-5">
-        <div class="col text-center">
-            <p class="text-start">Guarda este código si deseas el mensaje que acabas de crear, para que puedas hacer un seguimiento. Si escribes un mensaje nuevo, puedes poner este código en el formulario al momento de generarlo, para que puedas hacer seguimiento a varios mensajes a la vez.</p>
-        </div>
-    </div>
-    <div class="row mx-auto">
-        <div class="col text-center">
-            <a href="index.php" class="boton-efecto">Regresar</a>
-        </div>
-        <div class="col text-center">
-            <a href="buscar.php" class="boton-efecto">Buscar mensajes</a>
-        </div>
-    </div>
+<div class="container cardContainer">
+    <h1 class="text-white mb-3">Resultados</h1>
+    <?php
+    include '../controller/listarMensajes.php';
+    $registros = array();
+
+    $nombre = ucwords(strtolower($_POST['txtNombre']));
+    $apellido = ucwords(strtolower($_POST['txtApellido']));
+    $pais = ucwords($_POST['cmbPais']);
+    $registros = listarMensajes($nombre, $apellido, $pais);
+    echo "<h2 class=\"text-white mb-5\">Mensajes en <span class=\"searchTerms\">" . $pais . "</span> para <span
+                class=\"searchTerms\">" . $nombre . " " . $apellido . "</span>:</h2>";
+    ?>
+
+    <ol class="messageCard">
+        <?php
+        $index = 1;
+        foreach ($registros as $registro) {
+            $fechaInt = strtotime($registro['fecha']);
+            $fecha = date('d/m/Y', $fechaInt);
+            $nombreOriginal = ucwords(strtolower($registro['nombre']));
+            $apellidoOriginal = ucwords(strtolower($registro['apellido']));
+            echo "<li class=\"messageCardItem\" style=\"--animation-order:" . $index . "\"><a class=\"messageCardLink\">
+                <div class=\"messageCardContent articles__content--lhs\">
+                    <h3 class=\"messageCardTitle\">" . $registro['mensaje'] . "</h3>
+                    <div class=\"messageCardFooter\">
+                        <span>" . $nombreOriginal . " " . $apellidoOriginal . "</span>
+                        <span>" . $fecha . "</span>
+                    </div>
+                </div>
+                <div class=\"messageCardContent articles__content--rhs\" aria-hidden=\"true\">
+                    <h3 class=\"messageCardTitle\">" . $registro['mensaje'] . "</h3>
+                    <div class=\"messageCardFooter\">
+                        <p>Perú</p>
+                        <span>" . $fecha . "</span>
+                    </div>
+                </div>
+            </a>
+        </li>";
+            $index++;
+        }
+        ?>
+    </ol>
 </div>
+
 <!-- inicio de footer -->
 <footer class="footer mt-auto py-3 bg-light text-center fixed-bottom ">
     <div class="container ">
-        <span class="text-muted ">Página desarrollada por el grupo 4</span>
+        <span class="text-muted ">Página desarrollada por el grupo 4.  <a class="text-muted" href="adminlogin.php">Admin login</a></span>
     </div>
 </footer>
 <!-- fin de footer -->
+
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Nosotros</title>
+    <title>Servicios</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -25,7 +25,7 @@
     })(window, document);</script>
 </head>
 
-<body style="background: url('img/img_nosotros_2x.png') no-repeat center center fixed;
+<body style="background: url('img/img_buscar_2x.png') no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 background-size: cover;
@@ -33,7 +33,7 @@ background-size: cover;
 <!-- inicio de barra de navegación -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.php"><img src="img/logo.png" width="50" alt="navigation bar logo"></a>
+        <a class="navbar-brand" href="../index.php"><img src="img/logo.png" width="50" alt="navigation bar logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -72,39 +72,64 @@ background-size: cover;
 </nav>
 <!-- fin de barra de navegación -->
 
-<div class="container-fluid text-center bg-dark vh-100 text-white" style="--bs-bg-opacity: .8;">
+<div class="container">
     <div class="row">
-        <div class="col-4 mx-auto">
-            <div>
-                <img src="img/logo_blanco.png"/>
+        <div class="col-4 col-xs-12 col-sm-8 mx-auto">
+
+            <div class="text-center">
+                <img src="img/logo.png"/>
             </div>
-            <h1>
-                Acerca de Nosotros
+
+            <h1 class="text-center">
+                Servicios de TellU
             </h1>
             <div>
                 <p>
-                    TellU es un sitio abierto y únicamente interactivo que tiene como único objetivo relacionar y
-                    persuadir a personas de todo el mundo, producto de notas escritas hacía una persona de forma
-                    anónima. La cual puede visualizarla como cualquier nota de bandeja
-                    de mensajes de una red social e incluso, se encuentra al alcance de publicar nuevos mensajes
-                    anónimos hacia la persona que crea que haya sido emisora del mensaje.
+                    Nuestros servicios como empresa de mensajería es darte la mayor seguridad de que puedas escribirte
+                    de forma anónima ofreciéndole un servicio exclusivo en nuestra plataforma para que asi se sienta la
+                    confianza con nosotros de poder formar parte de su vida
+                    cotidiana y volvernos la empresa de mensajería más grande.
                 </p>
             </div>
         </div>
-
-        <div class="row">
-
-            <div>
-                <h5>contacto@tellu.com</h5>
-            </div>
-            <div>
-                <h5>(+051) 987-654-321</h5>
-            </div>
-            <div>
-                <h5>Av. Industrial n°7,Lurín</h5>
-            </div>
-            <div class="py-5">
-                <a class="boton-efecto" href="contacto.php" class="">Página de contacto</a>
+    </div>
+    <div class="row text-center">
+        <div class="col-3 col-xs-12 col-sm-8 mx-auto">
+            <div class="card-group">
+                <div class="card  mb-4 mx-2 shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 fw-normal">Gratis</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title">$0</h1>
+                        <ul class="list-group mt-3 mb-4">
+                            <li class="list-group-item">140 caracteres</li>
+                            <li class="list-group-item">Mensajes en tu pais</li>
+                            <li class="list-group-item">Mensajes desaparecen en 6 meses</li>
+                        </ul>
+                        <div class="py-3">
+                            <a href="escribir.html" class="boton-efecto">Escribir</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card  mb-4 mx-2 shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 fw-normal">Premium</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title">$1<small class="text-muted">.00</small></h1>
+                        <ul class="list-group mt-3 mb-4">
+                            <li class="list-group-item">180 caracteres</li>
+                            <li class="list-group-item">Mensajes en tu región/ciudad</li>
+                            <li class="list-group-item">Mensajes desaparecen en 1 año</li>
+                            <li class="list-group-item">Reporte semanal de búsquedas de tu mensaje</li>
+                            <li class="list-group-item">Emoticones en tu mensaje</li>
+                        </ul>
+                        <div class="py-3">
+                            <a href="escribir.html" class="boton-efecto">Pagar y escribir</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -113,7 +138,7 @@ background-size: cover;
 <!-- inicio de footer -->
 <footer class="footer mt-auto py-3 bg-light text-center fixed-bottom">
     <div class="container">
-        <span class="text-muted">Página desarrollada por el grupo 4</span>
+        <span class="text-muted ">Página desarrollada por el grupo 4.  <a class="text-muted" href="view/adminlogin.php">Admin login</a></span>
     </div>
 </footer>
 <!-- fin de footer -->
